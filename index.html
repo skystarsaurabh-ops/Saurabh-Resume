@@ -1,50 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saurabh Patni's Resume</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0f2027;
+  --card: rgba(255,255,255,0.08);
+  --text: #ffffff;
+  --accent: #00e6e6;
+}
+
+.light {
+  --bg: #f2f2f2;
+  --card: #ffffff;
+  --text: #111;
+  --accent: #0066ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg), #203a43);
+  color: var(--text);
+  transition: 0.4s;
+}
+
+header {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+header img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+header h1 {
+  margin-top: 15px;
+  font-size: 32px;
+}
+
+header p {
+  opacity: 0.8;
+}
+
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--card);
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid var(--accent);
+}
+
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 50px 20px;
+
+
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: var(--accent);
+}
+
+/* About */
+.about {
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* Skills */
+.skills span {
+  display: inline-block;
+  margin: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: var(--card);
+  border: 1px solid var(--accent);
+  animation: pop 1s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+/* Projects */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.project:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.project a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* GitHub Stats */
+.stats img {
+  width: 100%;
+  max-width: 450px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.7;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+
+</style>
 </head>
+
 <body>
-  <header>
-    <h1>Saurabh Patni</h1>
-    <p>SAP Ariba Solution Architect | Indore, India</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>SAP Ariba Solution Architect with experience in all the SAP Ariba modules.</p>
-  </section>
+<div class="toggle" onclick="toggleMode()">Light / Dark</div>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <ul>
-      <li>SAP Ariba Consultant at Top MNC (2022 Present)</li>
-      <li>Project Manager at Top MNC (2021)</li>
-    </ul>
-  </section>
+<header>
+<p id="typing"></p>
+<img src="profile.jpg" alt="Profile">
+  <h1>Saurabh Patni</h1>
+ <p>Indore M.P India| BE-Computer Science | SAP Ariba,PMP,CSM,Mulesoft Certified</p>
+  <a href="resume.pdf" download
+     style="display:inline-block;margin-top:15px;
+     padding:10px 22px;border-radius:25px;
+     border:1px solid var(--accent);
+     color:var(--text);text-decoration:none;">
+     Download Resume
+</a>
+</header>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <p>SAP Ariba,Coupa,Project Management, SQL</p>
-  </section>
+<section class="about">
+  <h2>About Me</h2>
+  <p>
+    Hi,I am experienced cloud products Implementation and Source to Pay consultant. I have working/execution knowledge of cloud products like SAP Ariba, Coupa,GEP.
+  </p>
+</section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Indore</p>
-    <p>LinkedIn: linkedin.com/in/saurabh</p>
-  </section>
-<button onclick="downloadResume()">Download Resume</button>
-  <footer>
-    <p>&copy; 2026 Saurabh Patni</p>
-  </footer>
+<section>
+  <h2>Experience</h2>
+  <div class="Experience" style="text-align:center;">
+    <li>8+ SAP Ariba Support and Implementation Engagements</li>
+    <li>Project Manager | 2010-till date | 16 Years | TCS</li>
+    <li>IT Analyst | 2007-2010 | 2 years | Capgemini </li>
+    <li>System Engineer | 2005-2007 | 3 years | Infosys</li>
+    <li>Trainee Developer | 2004-2005 | 6 Months | Suvi</li>
+  </div>
+</section>
+
+<section>
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project">
+      <h3>SAP Ariba Cloud,Onpremise Support and Maintanance</h3>
+      <p>Oracle ERP,S4Hana ERP systems Integrated by API,CIG</p>
+
+    </div>
+
+    <div class="project">
+      <h3>Coupa Implementation</h3>
+      <p>SAP Ariba Onpremise system migrated to Coupa.</p>
+
+    </div>
+
+    <div class="project">
+	      <h3>SAP Ariba Cloud Implementation</h3>
+	      <p>SAP Ariba onpremise to SAP Ariba Cloud Implementation</p>
+
+    </div>
+
+    <div class="project">
+      <h3>GEP Implementation</h3>
+      <p>SAP Ariba onpremise to GEP Implementation</p>
+
+    </div>
+  </div>
+
+
+</section>
+
+
+<section class="reveal">
+  <h2>Contact Me</h2>
+  <div style="text-align:center;">
+    <p>Email: yourmail@gmail.com</p>
+    <p>GitHub: github.com/yourusername</p>
+    <p>LinkedIn: linkedin.com/in/yourname</p>
+  </div>
+</section>
+
+<footer>
+  * 2026 * Made by Saurabh Patni
+</footer>
+
+<script>
+function toggleMode() {
+
+  document.body.classList.toggle("light");
+}
+
+const text = "21+Years Experience • SAP Ariba Consultant • Solution Architect";
+let i = 0;
+
+function typingEffect() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typingEffect, 80);
+  }
+}
+typingEffect();
+
+
+
+</script>
+<script>
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".reveal").forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<div id="particles-js"></div>
+
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 70 },
+    color: { value: "#00e6e6" },
+    shape: { type: "circle" },
+    opacity: { value: 0.4 },
+    size: { value: 3 },
+    move: { speed: 1 }
+  },
+  interactivity: {
+    events: { onhover: { enable: true, mode: "repulse" } }
+  }
+});
+</script>
+
 </body>
 
 </html>
+
